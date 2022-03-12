@@ -1,0 +1,20 @@
+@import url(https://fonts.google.com/specimen/Manrope);
+body {
+  max-width: 1440px;
+  font-family: "Manrope", sans-serif;
+}
+
+@media screen and (max-width: 376px) {
+  .pattern-divider-desktop {
+    display: none;
+  }
+  .pattern-divider-mobile {
+    display: flex;
+  }
+}
+.pattern-divider-desktop {
+  display: flex;
+}
+.pattern-divider-mobile {
+  display: none;
+}/*# sourceMappingURL=stylesheets.css.map */
