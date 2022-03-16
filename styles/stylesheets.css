@@ -1,20 +1,97 @@
-@import url(https://fonts.google.com/specimen/Manrope);
-body {
-  max-width: 1440px;
-  font-family: "Manrope", sans-serif;
-}
+@media screen and (max-width: 486px) {
+  body {
+    max-width: 375px;
+    margin-top: 35%;
+  }
 
-@media screen and (max-width: 376px) {
+  .advice_composant {
+    width: 85%;
+    min-width: 305px;
+    max-height: 30em;
+  }
+
   .pattern-divider-desktop {
     display: none;
   }
   .pattern-divider-mobile {
     display: flex;
+    margin-top: 4%;
+    margin-bottom: 0;
+  }
+
+  #randomiser {
+    margin-top: 2em;
+    margin-bottom: -3em;
   }
 }
-.pattern-divider-desktop {
-  display: flex;
+@media screen and (min-width: 487px) {
+  body {
+    max-width: 1440px;
+    margin-top: 15%;
+  }
+
+  .advice_composant {
+    width: 31em;
+    max-height: 16em;
+  }
+
+  .pattern-divider-desktop {
+    display: flex;
+    margin-top: 5%;
+    margin-bottom: 1%;
+  }
+  .pattern-divider-mobile {
+    display: none;
+  }
+
+  #randomiser {
+    margin-top: 2em;
+    margin-bottom: -5em;
+  }
 }
-.pattern-divider-mobile {
-  display: none;
+body {
+  max-width: 1440px;
+  font-family: "Manrope", sans-serif;
+  background-color: #1f2632;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.advice_composant {
+  background-color: #323a49;
+  padding: 3%;
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 6px 7px 22px #131720;
+}
+.advice_composant #advice-id {
+  color: #52ffa8;
+  font-size: 1em;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+}
+.advice_composant .advice_container {
+  font-size: 28px;
+  font-weight: 500;
+  color: #cee3e9;
+}
+.advice_composant .advice_container #advice {
+  text-align: center;
+  margin: 0;
+}
+.advice_composant #randomiser {
+  background-color: #52ffa8;
+  height: 60px;
+  width: 60px;
+  border: none;
+  border-radius: 10em;
+}
+.advice_composant #randomiser:hover {
+  box-shadow: 0px 0px 40px #52ffa8;
+  transition: 100ms;
 }/*# sourceMappingURL=stylesheets.css.map */

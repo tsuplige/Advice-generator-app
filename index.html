@@ -7,7 +7,6 @@
   <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <script type="text/javascript" src="js/DataManager.js"></script>
   <script src="https://kit.fontawesome.com/49d298eb13.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="styles/stylesheets.css">
 
@@ -18,7 +17,7 @@
 
 <body>
 
-  <main>
+  <main class="advice_composant">
     <h1 id="advice-id"> Advice #
       <!-- Advice ID goes here -->
     </h1>
@@ -26,10 +25,26 @@
       <p id="advice">"Ceci est un test" </p>
     </article>
     <div class="pattern-divider">
-      <svg class="pattern-divider-desktop" width="444" height="16" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="#4F5D74" d="M0 8h196v1H0zM248 8h196v1H248z"/><g transform="translate(212)" fill="#CEE3E9"><rect width="6" height="16" rx="3"/><rect x="14" width="6" height="16" rx="3"/></g></g></svg>
-      <svg class="pattern-divider-mobile" width="295" height="16" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="#4F5D74" d="M0 8h122v1H0zM173 8h122v1H173z"/><g transform="translate(138)" fill="#CEE3E9"><rect width="6" height="16" rx="3"/><rect x="14" width="6" height="16" rx="3"/></g></g></svg>
+      <svg class="pattern-divider-desktop" width="444" height="16" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" fill-rule="evenodd">
+          <path fill="#4F5D74" d="M0 8h196v1H0zM248 8h196v1H248z" />
+          <g transform="translate(212)" fill="#CEE3E9">
+            <rect width="6" height="16" rx="3" />
+            <rect x="14" width="6" height="16" rx="3" />
+          </g>
+        </g>
+      </svg>
+      <svg class="pattern-divider-mobile" width="295" height="16" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" fill-rule="evenodd">
+          <path fill="#4F5D74" d="M0 8h122v1H0zM173 8h122v1H173z" />
+          <g transform="translate(138)" fill="#CEE3E9">
+            <rect width="6" height="16" rx="3" />
+            <rect x="14" width="6" height="16" rx="3" />
+          </g>
+        </g>
+      </svg>
     </div>
-    <button id="randomiser" class="random_button">
+    <button id="randomiser">
       <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M20 0H4a4.005 4.005 0 0 0-4 4v16a4.005 4.005 0 0 0 4 4h16a4.005 4.005 0 0 0 4-4V4a4.005 4.005 0 0 0-4-4ZM7.5 18a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm0-9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm4.5 4.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm4.5 4.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm0-9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"
@@ -37,6 +52,27 @@
       </svg>
     </button>
   </main>
+  <script>
+    ShowAdvice();
+    var btn = document.getElementById('randomiser');
+
+
+
+    async function getAllData() {
+      let answer = await fetch("https://api.adviceslip.com/advice");
+      let data = await answer.json();
+      return data;
+    }
+
+    async function ShowAdvice() {
+      let data = await getAllData();
+      document.getElementById('advice-id').textContent = "ADVICE #" + data.slip.id;
+      document.getElementById('advice').textContent = '"' + data.slip.advice + '"';
+      console.log('test')
+    }
+
+    document.getElementById('randomiser').addEventListener('click', ShowAdvice);
+  </script>
 
   <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
