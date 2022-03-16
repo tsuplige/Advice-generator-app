@@ -74,6 +74,7 @@ body {
   font-weight: 300;
   display: flex;
   justify-content: center;
+  letter-spacing: 2px;
 }
 .advice_composant .advice_container {
   font-size: 28px;
